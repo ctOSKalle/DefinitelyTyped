@@ -1,4 +1,4 @@
-// Type definitions for React 18.0
+// Type definitions for React 18.3
 // Project: http://facebook.github.io/react/
 // Definitions by: Asana <https://asana.com>
 //                 AssureSign <http://www.assuresign.com>
@@ -1856,6 +1856,10 @@ declare namespace React {
         draggable?: Booleanish | undefined;
         hidden?: boolean | undefined;
         id?: string | undefined;
+        /**
+         * @see https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/inert
+         */
+        inert?: boolean | undefined;
         lang?: string | undefined;
         placeholder?: string | undefined;
         slot?: string | undefined;
