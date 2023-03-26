@@ -8,7 +8,7 @@ import {
 import { MenuItem } from 'material-ui';
 
 class Test extends React.Component {
-    textValidatorRef: React.RefObject<TextValidator> = React.createRef();
+    textValidatorRef: React.RefObject<TextValidator | null> = React.createRef();
 
     onSubmitted = (event: React.FormEvent) => {
         event.preventDefault(); // Actually preventDefault() is called by ValidatorForm

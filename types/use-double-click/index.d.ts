@@ -7,7 +7,7 @@ import { RefObject, MutableRefObject, MouseEvent } from 'react';
 
 declare function useDoubleClick<T = unknown>(options: {
   /** Dom node to watch for double clicks */
-  ref: RefObject<T> | MutableRefObject<T>;
+  ref: RefObject<T | null> | MutableRefObject<T>;
   /** The amount of time (in milliseconds) to wait before differentiating a single from a double click. Defaults to 300. */
   latency?: number | undefined;
   /** A callback function for single click events */

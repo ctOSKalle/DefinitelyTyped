@@ -72,7 +72,7 @@ declare namespace Rax {
 
   type Ref<T> =
     | { bivarianceHack(instance: T | null): void }['bivarianceHack']
-    | RefObject<T>
+    | RefObject<T | null>
     | null;
   type LegacyRef<T> = string | Ref<T>;
 
@@ -590,7 +590,7 @@ declare namespace Rax {
     [propertyName: string]: any;
   }
 
-  function createRef<T>(): RefObject<T>;
+  function createRef<T>(): RefObject<T | null>;
 
   // will show `ForwardRef(${Component.displayName || Component.name})` in devtools by default,
   // but can be given its own specific name
@@ -782,7 +782,7 @@ declare namespace Rax {
    * of the generic argument.
    */
   // TODO (TypeScript 3.0): <T extends unknown>
-  function useRef<T>(initialValue: T | null): RefObject<T>;
+  function useRef<T>(initialValue: T | null): RefObject<T | null>;
   // convenience overload for potentially undefined initialValue / call with 0 arguments
   // has a default to stop it from defaulting to {} instead
   /**

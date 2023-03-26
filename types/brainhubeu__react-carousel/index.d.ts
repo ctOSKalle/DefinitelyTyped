@@ -29,7 +29,7 @@ export type CarouselPluginFunc = ({
 }: {
     options?: any;
     carouselProps: CarouselProps;
-    refs: Record<string, React.RefObject<HTMLElement>>;
+    refs: Record<string, React.RefObject<HTMLElement | null>>;
 }) => {
     plugin?: (() => void) | undefined;
     beforeCarouselItems?: (() => JSX.Element) | undefined;

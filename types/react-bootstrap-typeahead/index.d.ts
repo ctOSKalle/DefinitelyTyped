@@ -532,5 +532,5 @@ export function useToken(props: {
     onFocus?: EventHandler<HTMLElement> | undefined;
     onKeyDown: EventHandler<HTMLElement>;
     onRemove?: (() => void) | undefined;
-    ref: React.RefObject<HTMLDivElement>;
+    ref: React.RefObject<HTMLDivElement | null>;
 };

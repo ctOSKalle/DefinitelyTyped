@@ -40,7 +40,7 @@ export interface CalendarProps {
     goToRangeStartOnSelect?: boolean | undefined;
     inputRef?:
         | ((ref: HTMLInputElement | null) => void)
-        | RefObject<HTMLInputElement>
+        | RefObject<HTMLInputElement | null>
         | MutableRefObject<HTMLInputElement | null>
         | undefined;
     locale?: string | undefined;

@@ -23,5 +23,5 @@ declare type ScrollableWrapper = {
 } | {
     getNode(): ScrollableView;
 } | ScrollableView;
-export default function useScrollToTop(ref: React.RefObject<ScrollableWrapper>): void;
+export default function useScrollToTop(ref: React.RefObject<ScrollableWrapper | null>): void;
 export {};

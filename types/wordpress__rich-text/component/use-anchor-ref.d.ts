@@ -19,4 +19,4 @@ import { Value } from '../create';
  *
  * @deprecated since 5.16.0. Use `useAnchor` instead.
  */
-export function useAnchorRef(param: { ref: RefObject<HTMLElement>, value: Value, settings?: NamedFormatConfiguration }): Element | Range;
+export function useAnchorRef(param: { ref: RefObject<HTMLElement | null>, value: Value, settings?: NamedFormatConfiguration }): Element | Range;

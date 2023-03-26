@@ -237,7 +237,7 @@ type ImgixHTMLAttributes =
 interface CommonProps {
     className?: string | undefined;
     onMounted?:
-        | ((ref?: React.RefObject<HTMLPictureElement | HTMLImageElement | HTMLSourceElement>) => void)
+        | ((ref?: React.RefObject<HTMLPictureElement | HTMLImageElement | HTMLSourceElement | null>) => void)
         | undefined;
     htmlAttributes?: ImgixHTMLAttributes | undefined;
     domain?: string | undefined;
