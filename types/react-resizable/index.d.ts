@@ -36,7 +36,7 @@ export interface ResizeCallbackData {
 export type ResizableProps = {
     children?: React.ReactNode;
     className?: string | undefined;
-    handle?: React.ReactNode | ((resizeHandle: ResizeHandle, ref: React.RefObject<any | null>) => React.ReactNode) | undefined;
+    handle?: React.ReactNode | ((resizeHandle: ResizeHandle, ref: React.RefObject<any>) => React.ReactNode) | undefined;
     handleSize?: [number, number] | undefined;
     lockAspectRatio?: boolean | undefined;
     minConstraints?: [number, number] | undefined;
