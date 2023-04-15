@@ -76,7 +76,7 @@ declare namespace React {
     type ComponentType<P = {}> = ComponentClass<P> | FunctionComponent<P>;
 
     type JSXElementConstructor<P> =
-        | ((props: P) => ReactElement<any, any> | null)
+        | ((props: P) => ReactNode)
         | (new (props: P) => Component<any, any>);
 
     interface RefObject<T> {
@@ -107,7 +107,7 @@ declare namespace React {
         C extends
             | ForwardRefExoticComponent<any>
             | { new (props: any): Component<any> }
-            | ((props: any, context?: any) => ReactElement | null)
+            | ((props: any, context?: any) => ReactNode)
             | keyof JSX.IntrinsicElements
     > =
         // need to check first if `ref` is a valid prop for ts@3.0
@@ -374,7 +374,7 @@ declare namespace React {
         /**
          * **NOTE**: Exotic components are not callable.
          */
-        (props: P): (ReactElement|null);
+        (props: P): ReactNode;
         readonly $$typeof: symbol;
     }
 
@@ -544,7 +544,7 @@ declare namespace React {
     type FC<P = {}> = FunctionComponent<P>;
 
     interface FunctionComponent<P = {}> {
-        (props: P, context?: any): ReactElement<any, any> | null;
+        (props: P, context?: any): ReactNode;
         propTypes?: WeakValidationMap<P> | undefined;
         contextTypes?: ValidationMap<any> | undefined;
         defaultProps?: Partial<P> | undefined;
@@ -560,7 +560,7 @@ declare namespace React {
      * @deprecated - Equivalent with `React.FunctionComponent`.
      */
     interface VoidFunctionComponent<P = {}> {
-        (props: P, context?: any): ReactElement<any, any> | null;
+        (props: P, context?: any): ReactNode;
         propTypes?: WeakValidationMap<P> | undefined;
         contextTypes?: ValidationMap<any> | undefined;
         defaultProps?: Partial<P> | undefined;
@@ -570,7 +570,7 @@ declare namespace React {
     type ForwardedRef<T> = ((instance: T | null) => void) | MutableRefObject<T | null> | null;
 
     interface ForwardRefRenderFunction<T, P = {}> {
-        (props: P, ref: ForwardedRef<T>): ReactElement | null;
+        (props: P, ref: ForwardedRef<T>): ReactNode;
         displayName?: string | undefined;
         // explicit rejected with `never` required due to
         // https://github.com/microsoft/TypeScript/issues/36826
@@ -3163,6 +3163,7 @@ type ReactManagedAttributes<C, P> = C extends { propTypes: infer T; defaultProps
 
 declare global {
     namespace JSX {
+        type ElementType = React.ElementType;
         interface Element extends React.ReactElement<any, any> { }
         interface ElementClass extends React.Component<any> {
             render(): React.ReactNode;
