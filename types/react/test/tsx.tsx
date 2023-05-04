@@ -672,7 +672,7 @@ function elementTypeTests() {
     }
 
     const ReturnPromise = () => Promise.resolve('React');
-    // @ts-expect-error experimental release channel only
+    // Will not type-check in a real project but accepted in DT tests since experimental.d.ts is part of compilation.
     const FCPromise: React.FC = ReturnPromise;
     class RenderPromise extends React.Component {
         // Will not type-check in a real project but accepted in DT tests since experimental.d.ts is part of compilation.
@@ -742,9 +742,9 @@ function elementTypeTests() {
     <RenderReactNode />;
     React.createElement(RenderReactNode);
 
-    // @ts-expect-error Only available in experimental release channel
+    // Will not type-check in a real project but accepted in DT tests since experimental.d.ts is part of compilation.
     <ReturnPromise />;
-    // @ts-expect-error Only available in experimental release channel
+    // Will not type-check in a real project but accepted in DT tests since experimental.d.ts is part of compilation.
     React.createElement(ReturnPromise);
     // Will not type-check in a real project but accepted in DT tests since experimental.d.ts is part of compilation.
     <RenderPromise />;
